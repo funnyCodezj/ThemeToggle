@@ -1,4 +1,4 @@
-# ThemeToggle
+# windows主题切换（ThemeToggle）
 
 [中文](#中文) | [English](#english)
 
