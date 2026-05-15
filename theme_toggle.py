@@ -1,3 +1,5 @@
+import os
+import sys
 import tkinter as tk
 import winreg
 import ctypes
@@ -132,6 +134,7 @@ class ThemeApp:
         self.root = tk.Tk()
         self.root.title(" ")
         self.root.resizable(False, False)
+        self.root.iconbitmap(self._icon_path())
         self.root.configure(bg=self.LIGHT_BG)
 
         self._light = get_theme_mode()
@@ -145,6 +148,14 @@ class ThemeApp:
 
         self.root.attributes("-topmost", True)
         self.root.protocol("WM_DELETE_WINDOW", self._quit)
+
+    @staticmethod
+    def _icon_path():
+        try:
+            base = sys._MEIPASS
+        except AttributeError:
+            base = os.path.dirname(__file__)
+        return os.path.join(base, "logo.ico")
 
     def _build_ui(self):
         # ── icon ──
